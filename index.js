@@ -75,9 +75,11 @@ async function main() {
       await bot.closeWebHook();
     }
 
-    console.log("set webhook", await bot.setWebHook("https://tg.deluxspa.ru"));
+    console.log("set webhook", await bot.setWebHook(`https://tg.deluxspa.ru/bot${process.env.TELEGRAM_API_TOKEN}`));
 
     console.log("open webhook", await bot.openWebHook());
+
+    console.log("webhook info", await bot.getWebHookInfo());
   }
 }
 
