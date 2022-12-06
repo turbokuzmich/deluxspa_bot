@@ -48,7 +48,7 @@ bot.on("document", async (msg) => {
 
   await bot.sendMessage(
     id,
-    `Каталог загружен и доступен по адресу https://tg.deluxspa.ru/downloads/${path.basename(
+    `Каталог загружен и доступен по адресу https://tg.deluxspa.ru/${path.basename(
       uploadPath
     )}`
   );
