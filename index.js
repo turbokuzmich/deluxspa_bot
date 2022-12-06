@@ -69,6 +69,16 @@ async function main() {
       description: "Загрузить каталог NEON BEARD",
     },
   ]);
+
+  if (isProduction) {
+    if (bot.hasOpenWebHook()) {
+      await bot.closeWebHook();
+    }
+
+    console.log("set webhook", await bot.setWebHook("https://tg.deluxspa.ru"));
+
+    console.log("open webhook", await bot.openWebHook());
+  }
 }
 
 main();
