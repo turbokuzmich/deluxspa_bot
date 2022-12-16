@@ -1,10 +1,14 @@
-import fs from "fs/promises";
+import fs from "fs";
 import aws from "aws-sdk";
+import utils from "util";
 import path from "path";
 import { config } from "dotenv";
 import TelegramBot from "node-telegram-bot-api";
 
 config();
+
+const unlink = utils.promisify(fs.unlink);
+const readFile = utils.promisify(fs.readFile);
 
 let isBusy = false;
 
@@ -77,9 +81,9 @@ bot.on("document", async (msg) => {
 
     delete uploads[id];
 
-    const catalog = await fs.readFile(uploadPath);
+    const catalog = await readFile(uploadPath);
 
-    await fs.unlink(uploadPath);
+    await unlink(uploadPath);
 
     const { Contents } = await s3
       .listObjects({
