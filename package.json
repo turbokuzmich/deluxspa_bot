@@ -12,8 +12,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1276.0",
     "dotenv": "^16.0.3",
     "fs-extra": "^11.1.0",
-    "node-telegram-bot-api": "^0.60.0"
+    "looks-same": "^8.1.0",
+    "node-telegram-bot-api": "^0.60.0",
+    "pdf-to-img": "^2.1.1"
   }
 }
